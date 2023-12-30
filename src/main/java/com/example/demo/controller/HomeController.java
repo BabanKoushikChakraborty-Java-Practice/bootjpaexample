@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
@@ -13,37 +14,38 @@ import com.example.demo.repo.UserRepo;
 
 @RestController
 public class HomeController {
-	
+
 	@Autowired
 	UserRepo uRepo;
-	
+
 	@GetMapping("/add")
 	public String home() {
-		
-		User user= new User();
+
+		User user = new User();
 
 		user.setName("Raja");
 		user.setStatus("Active");
 		user.setCity("Kolaghat");
 		uRepo.save(user);
-	
+
 		return "Success!";
 	}
-	
+
 	@GetMapping("/update")
 	public String update() {
 		Optional<User> optional = uRepo.findById(1);
-		User user = optional.get();		
+		User user = optional.get();
 		System.out.println(user);
 		user.setCity("Bangalore");
 		User savedUser = uRepo.save(user);
 		System.out.println(savedUser);
-		
+
 		return "getting & updating data for id: " + user.getId();
 	}
-	
+
 	@GetMapping("/getAll")
 	public String getAll() {
+		/**************** 1.8 ************************/
 		List<User> all = uRepo.findAll();
 		all.forEach(new Consumer<User>() {
 
@@ -52,9 +54,17 @@ public class HomeController {
 				// TODO Auto-generated method stub
 				System.out.println(t);
 			}
-			
+
 		});
-		
+		/****************************************/
+		/***************** old ***********************/
+		Iterator<User> iterator = all.iterator();
+		while (iterator.hasNext()) {
+			User  u = iterator.next();
+			System.out.println(u);
+			
+		}
+		/****************************************/
 		return "getting all data";
 	}
 
