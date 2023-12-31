@@ -45,6 +45,10 @@ public class HomeController {
 
 	@GetMapping("/getAll")
 	public String getAll() {
+		/**************** 1.8 lambda************************/
+		List<User> all2 = uRepo.findAll();
+		all2.forEach(u->System.out.println(u));
+		/****************************************/
 		/**************** 1.8 ************************/
 		List<User> all = uRepo.findAll();
 		all.forEach(new Consumer<User>() {
@@ -63,9 +67,17 @@ public class HomeController {
 			User  u = iterator.next();
 			System.out.println(u);
 			
+			
+			
 		}
 		/****************************************/
 		return "getting all data";
 	}
 
+	
+	@GetMapping("/delete")
+	public String delete() {
+		uRepo.deleteById(1);
+		return "deleted!";
+	}
 }
