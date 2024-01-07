@@ -80,4 +80,31 @@ public class HomeController {
 		uRepo.deleteById(1);
 		return "deleted!";
 	}
+	
+	@GetMapping("/customQuery")
+	public String customQuery() {
+		
+//		List<User> byStatus = uRepo.findByStatus("Active");
+//		byStatus.forEach(e->System.out.println(e));
+		
+//		List<User> allUsers = uRepo.getAllUsers();
+//		allUsers.forEach(e->System.out.println(e));
+		
+//		List<User> userbyStatus = uRepo.getUserbyStatus("Active");
+//		userbyStatus.forEach(e->System.out.println(e));
+		
+
+//		List<User> allUsersByCityAndStatus = uRepo.getAllUsersByCityAndStatus("New Town","Active");
+//		allUsersByCityAndStatus.forEach(e->System.out.println(e));
+		
+//		List<User> allUsersByCityAndStatus2 = uRepo.getAllUsersByCityAndStatus2("New Town","Active");
+//		allUsersByCityAndStatus2.forEach(e->System.out.println(e));
+		
+		List<User> allUsersByCityAndStatus3 = uRepo.getAllUsersByCityAndStatus3("New Town","Active");
+		allUsersByCityAndStatus3.forEach(e->System.out.println(e));
+		
+//		
+		
+		return "success!";
+	}
 }
