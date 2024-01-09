@@ -62,26 +62,26 @@ public class HomeController {
 	@GetMapping("/add")
 	public String home() {
 
-		User user = new User();
-
-		user.setName("Raja");
-		user.setStatus("Active");
-		user.setCity("Kolaghat");
-		uRepo.save(user);
+//		User user = new User();
+//
+//		user.setName("Raja");
+//		user.setStatus("Active");
+//		user.setCity("Kolaghat");
+//		uRepo.save(user);
 
 		return "Success!";
 	}
 
 	@GetMapping("/update")
 	public String update() {
-		Optional<User> optional = uRepo.findById(1);
-		User user = optional.get();
-		System.out.println(user);
-		user.setCity("Bangalore");
-		User savedUser = uRepo.save(user);
-		System.out.println(savedUser);
+//		Optional<User> optional = uRepo.findById(1);
+//		User user = optional.get();
+//		System.out.println(user);
+//		user.setCity("Bangalore");
+//		User savedUser = uRepo.save(user);
+//		System.out.println(savedUser);
 
-		return "getting & updating data for id: " + user.getId();
+		return "getting & updating data for id: ";
 	}
 
 	@GetMapping("/getAll")
@@ -137,14 +137,14 @@ public class HomeController {
 //		List<User> userbyStatus = uRepo.getUserbyStatus("Active");
 //		userbyStatus.forEach(e->System.out.println(e));
 
-//		List<User> allUsersByCityAndStatus = uRepo.getAllUsersByCityAndStatus("New Town","Active");
+//		List<User> allUsersByCityAndStatus = uRepo.getAllUsersByCityAndStatus("kolkata","Active");
 //		allUsersByCityAndStatus.forEach(e->System.out.println(e));
 
-//		List<User> allUsersByCityAndStatus2 = uRepo.getAllUsersByCityAndStatus2("New Town","Active");
+//		List<User> allUsersByCityAndStatus2 = uRepo.getAllUsersByCityAndStatus2("kolkata","Active");
 //		allUsersByCityAndStatus2.forEach(e->System.out.println(e));
 
-		List<User> allUsersByCityAndStatus3 = uRepo.getAllUsersByCityAndStatus3("New Town", "Active");
-		allUsersByCityAndStatus3.forEach(e -> System.out.println(e));
+//		List<User> allUsersByCityAndStatus3 = uRepo.getAllUsersByCityAndStatus3("Kolkata", "Active");
+//		allUsersByCityAndStatus3.forEach(e -> System.out.println(e));
 
 //		
 

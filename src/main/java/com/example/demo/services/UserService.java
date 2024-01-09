@@ -26,9 +26,9 @@ public class UserService {
 	}
 	
 	public User updateUser(User user) {
-		Optional<User> byId = uRepo.findById(user.getId());
+		Optional<User> byId = uRepo.findById(user.getU_id());
 		User user2 = byId.get();
-		user2.setCity(user.getCity());
+		user2.setAddress(user.getAddress());
 		user2.setName(user.getName());
 		user2.setStatus(user.getStatus());
 		uRepo.save(user2);
@@ -36,7 +36,7 @@ public class UserService {
 	}
 	
 	public User updateUser2(User user, int userId) {
-		user.setId(userId );
+		user.setU_id(userId );
 		uRepo.save(user);
 		return user;
 		
