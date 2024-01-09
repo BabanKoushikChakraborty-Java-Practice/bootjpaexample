@@ -30,7 +30,7 @@ public interface UserRepo extends JpaRepository<User,Integer>   {
 	@Query("select u from User u where u.city=:c and u.status=:s ")
 	public List<User> getAllUsersByCityAndStatus2(@Param("c") String City,@Param("s") String Status);
 	
-	
+	/*Native SQL Query*/
 	@Query(value = "select * from User u where u.city=?1 and u.status=?2", nativeQuery = true)
 	public List<User> getAllUsersByCityAndStatus3(String City, String Status);
 	
